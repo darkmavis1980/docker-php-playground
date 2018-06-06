@@ -25,3 +25,8 @@ Everything is served from the `web` folder.
 
 In either way you choose, the content will be visible at the address `http://localhost:8300`
 
+
+## phpMyAdmin
+
+The docker-compose.yml file also contains a container with MySQL and phpMyAdmin, and the latter one runs on the port `8799`, so you can access to it at the address
+`http://localhost:8799/`

@@ -9,3 +9,34 @@ services:
       - NODE_ENV=docker
     volumes:
       - ./web/:/var/www/html/
+    networks:
+      - webnet
+  db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: myDb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: test
+      MYSQL_ROOT_PASSWORD: test
+    volumes:
+      - ./dump:/var/lib/mysql
+    networks:
+      - webnet
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - db:db
+    ports:
+      - 8799:80
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_USER: user
+      PMA_PASSWORD: test
+    networks:
+      - webnet
+networks:
+  webnet:
