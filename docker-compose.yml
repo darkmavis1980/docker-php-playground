@@ -5,10 +5,12 @@ services:
     build: .
     ports:
       - "8300:80"
+      - "9000:9000"
     environment:
       - NODE_ENV=docker
     volumes:
       - ./web/:/var/www/html/
+    env_file: .env
     networks:
       - webnet
   db:
