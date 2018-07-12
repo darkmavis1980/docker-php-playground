@@ -1,3 +1,4 @@
 !web/index.php
 web/*
 dump/
+.vscode/
