@@ -1,11 +1,11 @@
 version: "3"
 services:
   web:
-    container_name: app
+    container_name: php-playground
     build: .
     ports:
       - "8300:80"
-      - "9000:9000"
+      - "9010:9010"
     environment:
       - NODE_ENV=docker
     volumes:
@@ -23,7 +23,7 @@ services:
       MYSQL_PASSWORD: test
       MYSQL_ROOT_PASSWORD: test
     volumes:
-      - ./dump:/var/lib/mysql
+      - ./.dump:/var/lib/mysql
     networks:
       - webnet
   phpmyadmin:
