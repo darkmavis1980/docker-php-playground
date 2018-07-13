@@ -1,8 +1,7 @@
 FROM php:7.2-apache
 RUN docker-php-ext-install mysqli
 RUN pecl install xdebug-2.6.0 && docker-php-ext-enable xdebug
-# RUN mkdir /tmp/xdebug_log
-# RUN chmod 0755 /tmp/xdebug_log
+
 RUN echo 'zend_extension=xdebug.so' >> /usr/local/etc/php/php.ini
 RUN echo '[xdebug]' >> /usr/local/etc/php/php.ini
 RUN echo 'xdebug.idekey=VSCODE' >> /usr/local/etc/php/php.ini
