@@ -5,9 +5,9 @@ services:
     build: .
     ports:
       - "8300:80"
-      - "9010:9010"
     environment:
       - NODE_ENV=docker
+      - XDEBUG_CONFIG=remote_host=docker.for.mac.localhost
     volumes:
       - ./web/:/var/www/html/
     env_file: .env
