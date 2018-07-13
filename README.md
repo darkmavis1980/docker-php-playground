@@ -30,3 +30,9 @@ In either way you choose, the content will be visible at the address `http://loc
 
 The docker-compose.yml file also contains a container with MySQL and phpMyAdmin, and the latter one runs on the port `8799`, so you can access to it at the address
 `http://localhost:8799/`
+
+
+## Xdebug
+
+To enable the Xdebug, please save the marklets you can find from [the Jetbrains website](https://www.jetbrains.com/phpstorm/marklets/).
+This docker container runs **Xdebug 2.6.0**.
