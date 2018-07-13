@@ -1,14 +1,16 @@
 version: "3"
 services:
   web:
-    container_name: app
+    container_name: php-playground
     build: .
     ports:
       - "8300:80"
     environment:
       - NODE_ENV=docker
+      - XDEBUG_CONFIG=remote_host=docker.for.mac.localhost
     volumes:
       - ./web/:/var/www/html/
+    env_file: .env
     networks:
       - webnet
   db:
@@ -21,7 +23,7 @@ services:
       MYSQL_PASSWORD: test
       MYSQL_ROOT_PASSWORD: test
     volumes:
-      - ./dump:/var/lib/mysql
+      - ./.dump:/var/lib/mysql
     networks:
       - webnet
   phpmyadmin:
