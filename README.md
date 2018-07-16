@@ -7,13 +7,15 @@ Simple PHP7.2 with Apache 2 docker container to play with PHP
 Build it with:
 
 ```
+docker build .
+// or with tag
 docker build -t <username>/php-playground .
 ```
 
 Run it with:
 
 ```
-docker run -p 8300:80 <username>/php-playground
+docker run -p 8300:80 php-playground
 ```
 
 ## With Docker Compose
