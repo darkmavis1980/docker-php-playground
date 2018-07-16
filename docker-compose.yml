@@ -5,9 +5,6 @@ services:
     build: .
     ports:
       - "8300:80"
-    environment:
-      - NODE_ENV=docker
-      - XDEBUG_CONFIG=remote_host=docker.for.mac.localhost
     volumes:
       - ./web/:/var/www/html/
     env_file: .env
@@ -22,8 +19,8 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: test
       MYSQL_ROOT_PASSWORD: test
-    volumes:
-      - ./.dump:/var/lib/mysql
+    # volumes:
+    #   - ./.dump:/var/lib/mysql
     networks:
       - webnet
   phpmyadmin:
