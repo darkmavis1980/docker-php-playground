@@ -1,5 +1,7 @@
 FROM php:7.2-apache
-RUN docker-php-ext-install mysqli
+RUN a2enmod rewrite
+RUN service apache2 restart
+RUN docker-php-ext-install mysqli pdo_mysql
 RUN pecl install xdebug-2.6.0 && docker-php-ext-enable xdebug
 
 RUN echo 'zend_extension=xdebug.so' >> /usr/local/etc/php/php.ini
